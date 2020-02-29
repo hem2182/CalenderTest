@@ -1,0 +1,146 @@
+<div class="col-sm-9" style="width:100%">
+    <div style="float:left; width:12%">
+        <table class="table table-light table-bordered" style="border: 1px solid black">
+            <tbody>
+                <tr>
+                    <td colspan=5 style="text-align: center;">
+                        <div (click)=changeYearMinus()><i class="fa fa-caret-left"></i></div>
+                        <p>{{currentYearValue}}</p>
+                        <div (click)=changeYearPlus()><i class="fa fa-caret-right"></i></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td (click)="showSchedule(i)" *ngFor="let i of dateData[0]"
+                        [ngClass]="{'lastDay' : i.DateString == lastDayValue, 'secondLastDay' : i.DateString == secondLastDayValue}"
+                        [ngStyle]="{ 'font-weight' : (i.DateHasData) ? 'bold' : 'normal' }">
+                        {{i.DateString}}</td>
+                </tr>
+                <tr>
+                    <td (click)="showSchedule(i)" *ngFor="let i of dateData[1]"
+                        [ngClass]="{'lastDay' : i.DateString == lastDayValue, 'secondLastDay' : i.DateString == secondLastDayValue}"
+                        [ngStyle]="{ 'font-weight' : (i.DateHasData) ? 'bold' : 'normal' }">
+                        {{i.DateString}}</td>
+                </tr>
+                <tr>
+                    <td (click)="showSchedule(i)" *ngFor="let i of dateData[2]"
+                        [ngClass]="{'lastDay' : i.DateString == lastDayValue, 'secondLastDay' : i.DateString == secondLastDayValue}"
+                        [ngStyle]="{ 'font-weight' : (i.DateHasData) ? 'bold' : 'normal' }">
+                        {{i.DateString}}{{i.DateHasData ? '.' : ''}}
+                        <div *ngIf="i.DateHasData">
+                            <div *ngIf="showScheduleData" id='PopUp' class="popup">
+                                <p *ngFor="let x of i.DateData">{{x}}<i (click)="DeleteSchedule(i, x)"
+                                        class="fa fa-times red" style="float:right" aria-hidden="true"></i>
+                                </p>
+                                <button (click)="addSchedule(i)" class="btn btn-success">Add</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td (click)="showSchedule(i)" *ngFor="let i of dateData[3]"
+                        [ngClass]="{'lastDay' : i.DateString == lastDayValue, 'secondLastDay' : i.DateString == secondLastDayValue}"
+                        [ngStyle]="{ 'font-weight' : (i.DateHasData) ? 'bold' : 'normal' }">
+                        {{i.DateString}}{{i.DateHasData ? '.' : ''}}
+
+                    </td>
+                </tr>
+                <tr>
+                    <td (click)="showSchedule(i)" *ngFor="let i of dateData[4]"
+                        [ngClass]="{'lastDay' : i.DateString == lastDayValue, 'secondLastDay' : i.DateString == secondLastDayValue}"
+                        [ngStyle]="{ 'font-weight' : (i.DateHasData) ? 'bold' : 'normal' }">
+                        {{i.DateString}}{{i.DateHasData ? '.' : ''}}</td>
+                </tr>
+                <tr>
+                    <td (click)="showSchedule(i)" *ngFor="let i of dateData[5]"
+                        [ngClass]="{'lastDay' : i.DateString == lastDayValue, 'secondLastDay' : i.DateString == secondLastDayValue}"
+                        [ngStyle]="{ 'font-weight' : (i.DateHasData) ? 'bold' : 'normal' }">
+                        {{i.DateString}}{{i.DateHasData ? '.' : ''}}</td>
+                </tr>
+                <tr>
+                    <td (click)="showSchedule(i)" *ngFor="let i of dateData[6]"
+                        [ngClass]="{'lastDay' : i.DateString == lastDayValue, 'secondLastDay' : i.DateString == secondLastDayValue}"
+                        [ngStyle]="{ 'font-weight' : (i.DateHasData) ? 'bold' : 'normal' }">
+                        {{i.DateString}}{{i.DateHasData ? '.' : ''}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="float:left; width:88%">
+        <table class="table table-light table-bordered" style="border: 1px solid black">
+            <tbody>
+                <tr>
+                    <td (click)="displayDate(i)" *ngFor="let i of displayMonthRow1">{{i}}</td>
+                </tr>
+                <tr>
+                    <td (click)="displayDate(i)" *ngFor="let i of displayMonthRow2">{{i}}</td>
+                </tr>
+                <tr>
+                    <td (click)="displayDate(i)" *ngFor="let i of displayMonthRow3">{{i}}</td>
+                </tr>
+                <tr>
+                    <td>MON</td>
+                    <td>TUE</td>
+                    <td>WED</td>
+                    <td>THU</td>
+                    <td>FRI</td>
+                    <td>SAT</td>
+                    <td class="red">SUN</td>
+                </tr>
+                <tr>
+                    <td>TUE</td>
+                    <td>WED</td>
+                    <td>THU</td>
+                    <td>FRI</td>
+                    <td>SAT</td>
+                    <td class="red">SUN</td>
+                    <td>MON</td>
+                </tr>
+                <tr>
+                    <td>WED</td>
+                    <td>THU</td>
+                    <td>FRI</td>
+                    <td>SAT</td>
+                    <td class="red">SUN</td>
+                    <td>MON</td>
+                    <td>TUE</td>
+                </tr>
+                <tr>
+                    <td>THU</td>
+                    <td>FRI</td>
+                    <td>SAT</td>
+                    <td class="red">SUN</td>
+                    <td>MON</td>
+                    <td>TUE</td>
+                    <td>WED</td>
+                </tr>
+                <tr>
+                    <td>FRI</td>
+                    <td>SAT</td>
+                    <td class="red">SUN</td>
+                    <td>MON</td>
+                    <td>TUE</td>
+                    <td>WED</td>
+                    <td>THU</td>
+                </tr>
+                <tr>
+                    <td>SAT</td>
+                    <td class="red">SUN</td>
+                    <td>MON</td>
+                    <td>TUE</td>
+                    <td>WED</td>
+                    <td>THU</td>
+                    <td>FRI</td>
+                </tr>
+                <tr>
+                    <td class="red">SUN</td>
+                    <td>MON</td>
+                    <td>TUE</td>
+                    <td>WED</td>
+                    <td>THU</td>
+                    <td>FRI</td>
+                    <td>SAT</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

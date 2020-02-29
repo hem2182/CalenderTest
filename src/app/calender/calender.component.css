@@ -1,0 +1,37 @@
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding:10px;
+}
+
+.red {
+    color: red;
+}
+
+.lastDay {
+    color: blueviolet;
+}
+
+.secondLastDay {
+    color: chartreuse;
+}
+.highlightMonth {
+    color: aquamarine;
+}
+
+.popup {
+    position: absolute; 
+    left: 100px; 
+    top: 50px; 
+    border: solid black 1px; 
+    padding: 10px; 
+    background-color: aquamarine; 
+    text-align: justify; 
+    font-size: 12px; 
+    width: 135px;
+}
