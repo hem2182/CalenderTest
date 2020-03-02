@@ -25,13 +25,14 @@ td {
 }
 
 .popup {
-    position: absolute; 
-    left: 100px; 
-    top: 50px; 
-    border: solid black 1px; 
-    padding: 10px; 
-    background-color: aquamarine; 
-    text-align: justify; 
-    font-size: 12px; 
-    width: 135px;
+    position: absolute;
+    left: 100px;
+    top: 50px;
+    border: solid black 1px;
+    padding: 10px;
+    background-color: aquamarine;
+    text-align: justify;
+    font-size: 12px;
+    width: 200px;
+    height:200px!important;
 }
