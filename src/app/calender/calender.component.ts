@@ -30,59 +30,64 @@ export class CalenderComponent implements OnInit {
   showTextBox = false;
   scheduleText: string;
   data: DataModel[] = [];
+  dateData: Array<DateDataModel[]> = [];
 
-  dateData: Array<DateDataModel[]> = [
-    [{ DateString: '1', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '8', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '15', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '22', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '29', DateData: null, DateHasData: false, ShowSchedule: false }],
-    [{ DateString: '2', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '9', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '16', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '23', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '30', DateData: null, DateHasData: false, ShowSchedule: false }],
-    [{ DateString: '3', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '10', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '17', DateData: null, DateHasData: false, ShowSchedule: false }, {
-      DateString: '24',
-      DateData: ['Meeting, 8:00', 'Call, 9:00', 'Lunch With Client, 1:00 PM'], DateHasData: true,
-      ShowSchedule: false
-    },
-    { DateString: '31', DateData: null, DateHasData: false, ShowSchedule: false }],
-    [{ DateString: '4', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '11', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '18', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '25', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '', DateData: null, DateHasData: false, ShowSchedule: false }],
-    [{ DateString: '5', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '12', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '19', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '26', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '', DateData: null, DateHasData: false, ShowSchedule: false }],
-    [{ DateString: '6', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '13', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '20', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '27', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '', DateData: null, DateHasData: false, ShowSchedule: false }],
-    [{ DateString: '7', DateData: null, DateHasData: false, ShowSchedule: false },
-    {
-      DateString: '14',
-      DateData: ['Meeting, 8:00', 'Call, 9:00', 'Lunch With Client, 1:00 PM'], DateHasData: true, ShowSchedule: false
-    },
-    { DateString: '21', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '28', DateData: null, DateHasData: false, ShowSchedule: false },
-    { DateString: '', DateData: null, DateHasData: false, ShowSchedule: false }]];
 
   constructor() { }
 
   ngOnInit() {
+    this.InitializeDateData();
     this.populateMonths();
     console.log(this.dateData);
     console.log('Current Month' + this.currentMonthValue);
     this.currentMonthValueString = this.getMonthValue(this.currentMonthValue + 1);
     console.log(this.currentMonthValueString);
     this.displayDate(this.currentMonthValueString);
+  }
+
+  InitializeDateData() {
+    this.dateData = [
+      [{ DateString: '1', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '8', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '15', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '22', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '29', DateData: null, DateHasData: false, ShowSchedule: false }],
+      [{ DateString: '2', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '9', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '16', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '23', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '30', DateData: null, DateHasData: false, ShowSchedule: false }],
+      [{ DateString: '3', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '10', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '17', DateData: null, DateHasData: false, ShowSchedule: false }, {
+        DateString: '24',
+        DateData: ['Meeting, 8:00', 'Call, 9:00', 'Lunch With Client, 1:00 PM'], DateHasData: true,
+        ShowSchedule: false
+      },
+      { DateString: '31', DateData: null, DateHasData: false, ShowSchedule: false }],
+      [{ DateString: '4', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '11', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '18', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '25', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '', DateData: null, DateHasData: false, ShowSchedule: false }],
+      [{ DateString: '5', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '12', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '19', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '26', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '', DateData: null, DateHasData: false, ShowSchedule: false }],
+      [{ DateString: '6', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '13', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '20', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '27', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '', DateData: null, DateHasData: false, ShowSchedule: false }],
+      [{ DateString: '7', DateData: null, DateHasData: false, ShowSchedule: false },
+      {
+        DateString: '14',
+        DateData: ['Meeting, 8:00', 'Call, 9:00', 'Lunch With Client, 1:00 PM'], DateHasData: true, ShowSchedule: false
+      },
+      { DateString: '21', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '28', DateData: null, DateHasData: false, ShowSchedule: false },
+      { DateString: '', DateData: null, DateHasData: false, ShowSchedule: false }]];
   }
 
   addSchedule(data) {
