@@ -10,7 +10,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td (mouseenter)="showSchedule(i)" *ngFor="let i of dateData[0]"
+                    <td (mouseenter)="showSchedule(i)" (click)="selectDate(i)" *ngFor="let i of dateData[0]"
                         [ngClass]="{'lastDay' : i.DateString == lastDayValue, 'secondLastDay' : i.DateString == secondLastDayValue}"
                         [ngStyle]="{ 'font-weight' : (i.DateHasData) ? 'bold' : 'normal', 'background-color' : (i.DateString === currentDateValue.toString()) ? 'blue' : 'white' }">
                         {{i.DateString}}{{i.DateHasData ? '.' : ''}}
@@ -33,7 +33,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td (mouseenter)="showSchedule(i)" *ngFor="let i of dateData[1]"
+                    <td (mouseenter)="showSchedule(i)" (click)="selectDate(i)" *ngFor="let i of dateData[1]"
                         [ngClass]="{'lastDay' : i.DateString == lastDayValue, 'secondLastDay' : i.DateString == secondLastDayValue}"
                         [ngStyle]="{ 'font-weight' : (i.DateHasData) ? 'bold' : 'normal', 'background-color' : (i.DateString === currentDateValue.toString()) ? 'blue' : 'white' }">
                         {{i.DateString}}{{i.DateHasData ? '.' : ''}}
@@ -56,7 +56,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td (mouseenter)="showSchedule(i)" *ngFor="let i of dateData[2]"
+                    <td (mouseenter)="showSchedule(i)" (click)="selectDate(i)" *ngFor="let i of dateData[2]"
                         [ngClass]="{'lastDay' : i.DateString == lastDayValue, 'secondLastDay' : i.DateString == secondLastDayValue}"
                         [ngStyle]="{ 'font-weight' : (i.DateHasData) ? 'bold' : 'normal', 'background-color' : (i.DateString === currentDateValue.toString()) ? 'blue' : 'white' }">
                         {{i.DateString}}{{i.DateHasData ? '.' : ''}}
@@ -79,7 +79,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td (mouseenter)="showSchedule(i)" *ngFor="let i of dateData[3]"
+                    <td (mouseenter)="showSchedule(i)" (click)="selectDate(i)" *ngFor="let i of dateData[3]"
                         [ngClass]="{'lastDay' : i.DateString == lastDayValue, 'secondLastDay' : i.DateString == secondLastDayValue}"
                         [ngStyle]="{ 'font-weight' : (i.DateHasData) ? 'bold' : 'normal', 'background-color' : (i.DateString === currentDateValue.toString()) ? 'blue' : 'white' }">
                         {{i.DateString}}{{i.DateHasData ? '.' : ''}}
@@ -102,7 +102,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td (mouseenter)="showSchedule(i)" *ngFor="let i of dateData[4]"
+                    <td (mouseenter)="showSchedule(i)" (click)="selectDate(i)" *ngFor="let i of dateData[4]"
                         [ngClass]="{'lastDay' : i.DateString == lastDayValue, 'secondLastDay' : i.DateString == secondLastDayValue}"
                         [ngStyle]="{ 'font-weight' : (i.DateHasData) ? 'bold' : 'normal', 'background-color' : (i.DateString === currentDateValue.toString()) ? 'blue' : 'white' }">
                         {{i.DateString}}{{i.DateHasData ? '.' : ''}}
@@ -125,7 +125,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td (mouseenter)="showSchedule(i)" *ngFor="let i of dateData[5]"
+                    <td (mouseenter)="showSchedule(i)" (click)="selectDate(i)" *ngFor="let i of dateData[5]"
                         [ngClass]="{'lastDay' : i.DateString == lastDayValue, 'secondLastDay' : i.DateString == secondLastDayValue}"
                         [ngStyle]="{ 'font-weight' : (i.DateHasData) ? 'bold' : 'normal', 'background-color' : (i.DateString === currentDateValue.toString()) ? 'blue' : 'white' }">
                         {{i.DateString}}{{i.DateHasData ? '.' : ''}}
@@ -148,7 +148,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td (mouseenter)="showSchedule(i)" *ngFor="let i of dateData[6]"
+                    <td (mouseenter)="showSchedule(i)" (click)="selectDate(i)" *ngFor="let i of dateData[6]"
                         [ngClass]="{'lastDay' : i.DateString == lastDayValue, 'secondLastDay' : i.DateString == secondLastDayValue}"
                         [ngStyle]="{ 'font-weight' : (i.DateHasData) ? 'bold' : 'normal', 'background-color' : (i.DateString === currentDateValue.toString()) ? 'blue' : 'white' }">
                         {{i.DateString}}{{i.DateHasData ? '.' : ''}}
@@ -182,10 +182,14 @@
                         {{i}}</td>
                 </tr>
                 <tr>
-                    <td (click)="displayDate(i)" *ngFor="let i of displayMonthRow2">{{i}}</td>
+                    <td (click)="displayDate(i)" *ngFor="let i of displayMonthRow2"
+                        [ngStyle]="{'background-color' : (i === currentMonthValueString) ? 'purple' : 'white' }">
+                        {{i}}</td>
                 </tr>
                 <tr>
-                    <td (click)="displayDate(i)" *ngFor="let i of displayMonthRow3">{{i}}</td>
+                    <td (click)="displayDate(i)" *ngFor="let i of displayMonthRow3"
+                        [ngStyle]="{'background-color' : (i === currentMonthValueString) ? 'purple' : 'white' }">
+                        {{i}}</td>
                 </tr>
                 <tr>
                     <td>MON</td>

@@ -45,6 +45,10 @@ export class CalenderComponent implements OnInit {
     this.displayDate(this.currentMonthValueString);
   }
 
+  selectDate(data) {
+    this.currentDateValue = +data.DateString;
+  }
+
   InitializeDateData() {
     this.dateData = [
       [{ DateString: '1', DateData: null, DateHasData: false, ShowSchedule: false },
@@ -106,6 +110,7 @@ export class CalenderComponent implements OnInit {
   }
 
   displayDate(data) {
+    this.currentMonthValueString = data;
     console.log(this.highestDatePresent);
     if (data === 'APR' || data === 'JUN' || data === 'SEP' || data === 'NOV') {
       this.lastDayValue = '30';
